@@ -19,9 +19,7 @@ edge-node-manager compatible firmware for the ESP8266
  - Push code to resin as normal :)
 
 ### Note
-WiFI micro-controllers connect to a hotspot served by the Raspberry Pi 3, to enable this functionality you will need to a copy network configuration file to the Raspberry Pi.
-To do this create a new file inside the `/boot/system-connections` directory on the SD card, name it `resin-hotspot` and copy the contents of [this](http://github.com/resin-io/edge-node-manager/resin-hotspot) example configuration into it.
-You will need to connect your Raspberry Pi 3 over Ethernet.
+You will need to ensure your Raspberry Pi 3 has a spare WiFi interface
 
 ### Supported ESP8266 boards
 The supported boards are shown below, if you are not using the `huzzah` you will need to change [line 21](https://github.com/resin-io-projects/esp8266/blob/master/Dockerfile#L21) in the `Dockerfile` to the ID of the board you are using
