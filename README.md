@@ -22,7 +22,7 @@ edge-node-manager compatible firmware for the ESP8266
 You will need to ensure your Raspberry Pi 3 has a spare WiFi interface
 
 ### Supported ESP8266 boards
-The supported boards are shown below, if you are not using the `huzzah` you will need to change [line 21](https://github.com/resin-io-projects/esp8266/blob/master/Dockerfile#L21) in the `Dockerfile` to the ID of the board you are using
+The supported boards are shown below, if you are not using the `huzzah` you will need to change [line 9](https://github.com/resin-io-projects/esp8266/blob/master/Dockerfile#L9) in the `Dockerfile` to the ID of the board you are using
 
 | ID               | MCU     | Frequency | Flash  | RAM  | Name                                  |
 |------------------|---------|-----------|--------|------|---------------------------------------|
