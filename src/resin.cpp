@@ -28,6 +28,14 @@ void Resin::Setup(String applicationUUID, String ssid, String password, bool led
         _httpServer.send(200, "text/plain", _applicationUUID.c_str());
     });
 
+    _httpServer.on("/env", HTTP_POST, [&]() {
+        DynamicJsonBuffer jsonBuffer;
+        JsonObject& root = jsonBuffer.parseObject(_httpServer.arg(0));
+        // It is up to the user to process the environment variables
+        // https://bblanchon.github.io/ArduinoJson/
+        _httpServer.send(200, "text/plain", "");
+    });
+
     _httpServer.begin();
     _httpUpdater.setup(&_httpServer);
 }

@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPUpdateServer.h>
@@ -8,11 +9,11 @@
 
 class Resin {
     public:
-    Resin();
-    ~Resin();
+        Resin();
+        ~Resin();
 
-    void Setup(String applicationUUID, String ssid, String password, bool led=true);
-    void Loop();
+        void Setup(String applicationUUID, String ssid, String password, bool led=true);
+        void Loop();
 
     private:
         ESP8266WebServer _httpServer;
