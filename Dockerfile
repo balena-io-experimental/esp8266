@@ -1,21 +1,9 @@
-# A small glibc/apt base image designed for use in containers
-FROM bitnami/minideb
-
-# Install dependencies
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-    python \
-    python-pip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install tools
-RUN pip install platformio
+# esp8266 base image, repo here: https://github.com/resin-io-library/dependent-base-images/tree/master/esp8266
+# See more about resin base images here: http://docs.resin.io/runtime/resin-base-images/
+FROM resin/esp8266
 
 # Set the working directory
 WORKDIR /usr/src/app
-
-# Set up for building
-RUN mkdir -p /assets
 
 # Set the board
 ENV BOARD huzzah
