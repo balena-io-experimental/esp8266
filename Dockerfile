@@ -1,4 +1,4 @@
-# esp8266 base image
+# esp8266 base image, repo here: https://github.com/resin-io-library/dependent-base-images/tree/master/esp8266
 # See more about resin base images here: http://docs.resin.io/runtime/resin-base-images/
 FROM resin/esp8266
 
