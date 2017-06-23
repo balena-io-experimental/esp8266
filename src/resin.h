@@ -11,7 +11,7 @@ class Resin {
     Resin();
     ~Resin();
 
-    void Setup(const char* applicationUUID, const char* ssid, const char* password);
+    void Setup(const char* applicationUUID, const char* ssid, const char* password, bool led=true);
     void Loop();
 
     private:
@@ -21,6 +21,7 @@ class Resin {
         const char* _applicationUUID;
         const char* _ssid;
         const char* _password;
+        bool _led;
 };
 
 #endif

@@ -3,15 +3,16 @@
 Resin::Resin(){}
 Resin::~Resin(){}
 
-void Resin::Setup(const char* applicationUUID, const char* ssid, const char* password) {
+void Resin::Setup(const char* applicationUUID, const char* ssid, const char* password, bool led) {
     _applicationUUID = applicationUUID;
     _ssid = ssid;
     _password = password;
+    _led = led;
 
-    Serial.begin(115200);
-
-    pinMode(LED_BUILTIN, OUTPUT);
-    digitalWrite(LED_BUILTIN, HIGH);
+    if (_led) {
+        pinMode(LED_BUILTIN, OUTPUT);
+        digitalWrite(LED_BUILTIN, HIGH);
+    }
 
     WiFi.setAutoConnect(true);
     WiFi.setAutoReconnect(true);
@@ -34,9 +35,11 @@ void Resin::Setup(const char* applicationUUID, const char* ssid, const char* pas
 void Resin::Loop() {
     _httpServer.handleClient();
 
-    if (WiFi.isConnected()) {
-        digitalWrite(LED_BUILTIN, LOW);
-    } else {
-        digitalWrite(LED_BUILTIN, HIGH);
+    if (_led) {
+        if (WiFi.isConnected()) {
+            digitalWrite(LED_BUILTIN, LOW);
+        } else {
+            digitalWrite(LED_BUILTIN, HIGH);
+        }
     }
 }
