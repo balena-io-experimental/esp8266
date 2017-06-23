@@ -9,8 +9,6 @@ void Resin::Setup(const char* applicationUUID, const char* ssid, const char* pas
     _password = password;
     _led = led;
 
-    Serial.begin(115200);
-
     if (_led) {
         pinMode(LED_BUILTIN, OUTPUT);
         digitalWrite(LED_BUILTIN, HIGH);
