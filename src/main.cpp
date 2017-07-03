@@ -1,9 +1,9 @@
 #include <resin.h>
 
 Resin resin;
-const char* applicationUUID = "1234567890";
-const char* ssid = "resin-hotspot";
-const char* password = "resin-hotspot";
+String applicationUUID = "1234567890";
+String ssid = "resin-hotspot";
+String password = "resin-hotspot";
 
 void setup(void) {
     resin.Setup(applicationUUID, ssid, password);

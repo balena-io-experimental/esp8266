@@ -3,7 +3,7 @@
 Resin::Resin(){}
 Resin::~Resin(){}
 
-void Resin::Setup(const char* applicationUUID, const char* ssid, const char* password, bool led) {
+void Resin::Setup(String applicationUUID, String ssid, String password, bool led) {
     _applicationUUID = applicationUUID;
     _ssid = ssid;
     _password = password;
@@ -16,7 +16,7 @@ void Resin::Setup(const char* applicationUUID, const char* ssid, const char* pas
 
     WiFi.setAutoConnect(true);
     WiFi.setAutoReconnect(true);
-    WiFi.begin(_ssid, _password);
+    WiFi.begin(_ssid.c_str(), _password.c_str());
     while (WiFi.status() != WL_CONNECTED) {
         delay(100);
     }
@@ -25,7 +25,7 @@ void Resin::Setup(const char* applicationUUID, const char* ssid, const char* pas
     _httpUpdater = ESP8266HTTPUpdateServer();
 
     _httpServer.on("/id", [&](){
-        _httpServer.send(200, "text/plain", _applicationUUID);
+        _httpServer.send(200, "text/plain", _applicationUUID.c_str());
     });
 
     _httpServer.begin();
