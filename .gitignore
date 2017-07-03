@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+
+# Development files
+.pioenvs/
+.piolibdeps/
+.python-version
