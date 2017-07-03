@@ -11,16 +11,16 @@ class Resin {
     Resin();
     ~Resin();
 
-    void Setup(const char* applicationUUID, const char* ssid, const char* password, bool led=true);
+    void Setup(String applicationUUID, String ssid, String password, bool led=true);
     void Loop();
 
     private:
         ESP8266WebServer _httpServer;
         ESP8266HTTPUpdateServer _httpUpdater;
 
-        const char* _applicationUUID;
-        const char* _ssid;
-        const char* _password;
+        String _applicationUUID;
+        String _ssid;
+        String _password;
         bool _led;
 };
 
