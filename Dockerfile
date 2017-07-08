@@ -2,6 +2,11 @@
 # See more about resin base images here: http://docs.resin.io/runtime/resin-base-images/
 FROM resin/esp8266 AS buildstep
 
+# Install git
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+    git && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Set the working directory
 WORKDIR /usr/src/app
 

@@ -73,7 +73,7 @@ void readDHT() {
 void readLDR() {
     float v = analogRead(LDR_PIN);
 
-    if (isnan(h)) {
+    if (isnan(v)) {
       Serial.println("Failed to read from LDR sensor!");
       return;
     }
