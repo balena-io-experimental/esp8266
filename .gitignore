@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+
+# Platform.io
+.pioenvs/
+.piolibdeps/
+.python-version
