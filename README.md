@@ -11,9 +11,8 @@ edge-node-manager compatible firmware for the ESP8266
     - `RESIN_HOST_TYPE=esp8266`
  - Clone this repository to your local workspace
  - Add the dependent application `resin remote` to your local workspace
- - Retrieve the dependent application ID from the Resin dashboard, for example: If your dependent application URL is
- `https://dashboard.staging.io/apps/13829/devices` the ID is `13829`
- - Change [line 4](https://github.com/resin-io-projects/esp8266/blob/master/src/main.cpp#L4) in `src/main.cpp` `String applicationUUID = "1234567890";` to point to your dependent application ID e.g. `String applicationUUID = "13829";`
+ - Retrieve the dependent application ID from the [Dependent Applications](application_id.png) page on the Resin dashboard
+ - Change [line 4](https://github.com/resin-io-projects/esp8266/blob/master/src/main.cpp#L4) in `src/main.cpp` `String applicationUUID = "1234567890";` to point to your dependent application ID e.g. `String applicationUUID = "540116";`
  - Connect the ESP8266 to your computer using a USB cable
  - Run `platformio run --environment huzzah --target upload` to compile the initial firmware and flash the ESP8266 (replace `huzzah` with a different board ID from the table below if you are not using the `huzzah`)
  - Push code to resin as normal :)
