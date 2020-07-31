@@ -1,7 +1,7 @@
 #include "resin.h"
 
 Resin resin;
-String applicationUUID = "1520447";
+String applicationUUID = "1234567890";
 String deviceType = "ESP8266";
 String split = "_";
 String ssid = "balena-hotspot";
