@@ -17,20 +17,26 @@ void Resin::Setup(String  deviceType, String applicationUUID, String split, Stri
     }
 
     String host = _deviceType + _split + _applicationUUID + _split + ESP.getChipId();
-
+    Serial.println(host);
+    WiFi.mode(WIFI_STA);
     WiFi.setAutoConnect(true);
     WiFi.setAutoReconnect(true);
     WiFi.hostname(host);
+    Serial.print("Connecting");
     WiFi.begin(_ssid.c_str(), _password.c_str());
     while (WiFi.status() != WL_CONNECTED) {
         delay(250);
     }
+    Serial.print("Connected, IP address: ");
+    Serial.println(WiFi.localIP());
 
     while (!MDNS.begin(host.c_str())) {
         delay(250);
     }
 
-    _httpServer = ESP8266WebServer(80);
+    Serial.println("mDNS responder started");
+
+    ESP8266WebServer _httpServer (80);
     _httpUpdater.setup(&_httpServer);
     _httpServer.begin();
 
@@ -38,6 +44,7 @@ void Resin::Setup(String  deviceType, String applicationUUID, String split, Stri
 }
 
 void Resin::Loop() {
+    MDNS.update();
     _httpServer.handleClient();
 
     if (_led) {
