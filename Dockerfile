@@ -1,6 +1,6 @@
 # esp8266 base image, repo here: https://github.com/resin-io-library/dependent-base-images/tree/master/esp8266
 # See more about resin base images here: http://docs.resin.io/runtime/resin-base-images/
-FROM balenalib/amd64-debian-python:3.5-build AS buildstep
+FROM balenalib/amd64-debian-python:3.8-build AS buildstep
 RUN pip install -U platformio
 
 # # Set the working directory
